@@ -1,0 +1,106 @@
+.jobList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.jobCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background-color: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.jobCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-color: var(--primary-color);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.jobTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.companyName {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.date {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.jobTags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--secondary-color);
+  color: var(--foreground);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+.tagSalario {
+  padding: 0.25rem 0.75rem;
+  background-color: #dcfce7;
+  color: #166534;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tagSalario {
+    background-color: #064e3b;
+    color: #34d399;
+  }
+}
+
+.viewMoreContainer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.viewMoreButton {
+  padding: 0.75rem 2rem;
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.viewMoreButton:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+@media (max-width: 640px) {
+  .cardHeader { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .jobTags { margin-top: 0.5rem; }
+}

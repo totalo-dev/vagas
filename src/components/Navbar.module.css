@@ -1,0 +1,103 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  height: 48px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .header {
+    background-color: rgba(22, 22, 23, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  letter-spacing: -0.02em;
+  transition: opacity 0.2s;
+}
+
+.logo img {
+  width: 24px;
+  height: 24px;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.link {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: rgba(0, 0, 0, 0.8);
+  transition: color 0.2s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .link {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.link:hover {
+  color: rgba(0, 0, 0, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .link:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+.adminLink, .loginLink {
+  padding: 0.35rem 0.75rem;
+  background-color: #0071e3;
+  color: #fff;
+  border-radius: 980px;
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: -0.01em;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.adminLink:hover, .loginLink:hover {
+  background-color: #0077ED;
+}
+
+.adminLink:active, .loginLink:active {
+  transform: scale(0.96);
+}
+
+@media (max-width: 480px) {
+  .nav { gap: 0.75rem; }
+  .logo span { display: none; }
+}
