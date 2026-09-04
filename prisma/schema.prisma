@@ -61,29 +61,29 @@ model VerificationToken {
 }
 
 model Job {
-  id                   String        @id @default(cuid())
-  slug                 String        @unique
-  title                String
-  companyId            String
-  seniority            Seniority
-  modality             Modality
-  location             String
-  contractType         ContractType
-  salaryMin            Float?
-  salaryMax            Float?
-  salaryHidden         Boolean       @default(false)
-  description          String        @db.Text
-  responsibilities     String        @db.Text
-  requirements         String        @db.Text
-  differentials        String?       @db.Text
-  benefits             String?       @db.Text
-  selectionProcess     String?       @db.Text
-  status               JobStatus     @default(DRAFT)
-  externalApplyUrl     String?
-  createdAt            DateTime      @default(now())
-  updatedAt            DateTime      @updatedAt
+  id               String       @id @default(cuid())
+  slug             String       @unique
+  title            String
+  companyId        String
+  seniority        Seniority
+  modality         Modality
+  location         String
+  contractType     ContractType
+  salaryMin        Float?
+  salaryMax        Float?
+  salaryHidden     Boolean      @default(false)
+  description      String       @db.Text
+  responsibilities String       @db.Text
+  requirements     String       @db.Text
+  differentials    String?      @db.Text
+  benefits         String?      @db.Text
+  selectionProcess String?      @db.Text
+  status           JobStatus    @default(DRAFT)
+  externalApplyUrl String?
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
 
-  company      Company      @relation(fields: [companyId], references: [id])
+  company      Company       @relation(fields: [companyId], references: [id])
   technologies Technology[]
   applications Application[]
 }
@@ -117,21 +117,21 @@ enum JobStatus {
 }
 
 model Technology {
-  id        String    @id @default(cuid())
-  name      String    @unique
-  jobs      Job[]
+  id   String @id @default(cuid())
+  name String @unique
+  jobs Job[]
 }
 
 model Application {
-  id          String   @id @default(cuid())
-  jobId       String
-  name        String
-  email       String
-  linkedin    String?
-  github      String?
-  resumeUrl   String?
-  createdAt   DateTime @default(now())
-  
+  id        String   @id @default(cuid())
+  jobId     String
+  name      String
+  email     String
+  linkedin  String?
+  github    String?
+  resumeUrl String?
+  createdAt DateTime @default(now())
+
   job Job @relation(fields: [jobId], references: [id], onDelete: Cascade)
 }
 

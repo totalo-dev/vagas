@@ -10,13 +10,12 @@ export async function POST(req: NextRequest) {
     const email = formData.get("email") as string;
     const linkedin = formData.get("linkedin") as string | null;
     const github = formData.get("github") as string | null;
-    const resume = formData.get("resume") as File | null;
 
     if (!jobId || !name || !email) {
       return NextResponse.json({ error: "Campos obrigatórios faltando" }, { status: 400 });
     }
 
-    let resumeUrl = null;
+    const resumeUrl = null;
     // TODO: Implement actual file upload (e.g., to S3 or similar)
 
 
