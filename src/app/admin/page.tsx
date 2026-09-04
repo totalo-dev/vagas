@@ -1,14 +1,22 @@
 import styles from "./admin.module.css";
 import Link from "next/link";
+import prisma from "@/lib/prisma";
 
-export default function AdminDashboard() {
-  // In the future, fetch these indicators from the database via Server Actions
+export default async function AdminDashboard() {
+  const [published, drafts, closed, companies, categories] = await Promise.all([
+    prisma.job.count({ where: { status: "PUBLISHED" } }),
+    prisma.job.count({ where: { status: "DRAFT" } }),
+    prisma.job.count({ where: { status: "CLOSED" } }),
+    prisma.company.count(),
+    prisma.technology.count(),
+  ]);
+
   const indicators = {
-    published: 0,
-    drafts: 0,
-    closed: 0,
-    companies: 0,
-    categories: 0
+    published,
+    drafts,
+    closed,
+    companies,
+    categories
   };
 
   return (

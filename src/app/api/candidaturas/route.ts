@@ -16,14 +16,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Campos obrigatórios faltando" }, { status: 400 });
     }
 
-    // Mimic cloud upload delay
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    // Mimic fake URL
     let resumeUrl = null;
-    if (resume) {
-      resumeUrl = `https://fake-s3-bucket.s3.amazonaws.com/resumes/${Date.now()}-${resume.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`;
-    }
+    // TODO: Implement actual file upload (e.g., to S3 or similar)
+
 
     const application = await prisma.application.create({
       data: {
